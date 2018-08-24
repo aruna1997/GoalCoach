@@ -2,6 +2,8 @@ import React,{ Component } from 'react';
 import {connect} from 'react-redux';
 import {userref} from '../firebase';
 import {setTeams} from '../actions';
+import {Thumbnail} from 'react-bootstrap';
+import '../App.css';
 class TeamList extends Component
 {
     encode(email)
@@ -33,16 +35,22 @@ class TeamList extends Component
 
     render()
     {
-        
         return(
             <div>
-            {
-                this.props.user ? 
+                <h3>Your Teams</h3>
+            <div>
+            { this.props.user ? 
                 this.props.teams.map((team,k)=>(
-                    <div key={k}>team<button></button></div>
+                    <div key={k}>
+                    <div className="card" onClick={this}>
+                    {team}
+                    </div>
+                    <button className="btn btn-success">Open</button>
+                    </div>
                 ))        
                 : ''  
             }
+            </div>
             </div>
         )
     }

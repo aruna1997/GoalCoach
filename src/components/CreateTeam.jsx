@@ -14,7 +14,7 @@ class CreateTeam extends Component{
     addTeam()
     { 
         const t=this.state.tname.trim(); 
-        if(!(t.length==0))
+        if(!(t.length===0))
         {
      const{email}=this.props.user;
         let a=this.encode(email);
@@ -36,7 +36,7 @@ class CreateTeam extends Component{
     addTeamMember()
     {
         const t=this.state.teamemail.trim(); 
-        if(!(t.length==0))
+        if(!(t.length===0))
         {
         const email=this.state.teamemail;
         let a=this.encode(email);
@@ -50,7 +50,7 @@ class CreateTeam extends Component{
     }
     }
     
-    componentDidMount()
+ /*    componentDidMount()
     {
 
         teamref.on('value',snap=>{
@@ -76,7 +76,7 @@ class CreateTeam extends Component{
            
         })
 
-    }
+    } */
     render()
     {
         return(

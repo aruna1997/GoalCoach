@@ -62,7 +62,7 @@ class App extends Component
               >
               Logout
               </button>
-              <Link to={'/CreateTeam'}>Create Team</Link>
+              <Link to={'/CreateTeam'} style={{margin:"5px"}}>Create Team</Link>
               <TeamList />
             </div>
             )
