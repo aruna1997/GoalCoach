@@ -19,17 +19,17 @@ const history = createBrowserHistory();
  const store=createStore(reducer);
 
 firebaseApp.auth().onAuthStateChanged(user=>{
-    console.log('user',user);
+    //console.log('user',user);
     
     if(user)
     {
-        console.log('login',user);
+        //console.log('login',user);
         const{email}=user;
         store.dispatch(logUser(email));
        history.push('/');
     }
     else{
-        console.log('logout');
+        //console.log('logout');
         history.push('/SignIn')
     }
 })
@@ -51,3 +51,24 @@ ReactDOM.render(
     </Provider>
     ,document.getElementById('root')
 )
+
+/*
+
+userref.on('value',userRef=>{
+      let {email}=this.props.user;
+      email = email ? this.encode(email) : '' ;
+    const TeamListobj = userRef.child(`/${email}/team`).val();
+    const teamListArr =  TeamListobj ? Object.values(TeamListobj) : null ;
+
+        /* const userteams=[];
+        teamRef.forEach(t=>{
+            const tname=t.val();
+            userteams.push(tname);
+        })
+        console.log('all team',userteams); 
+
+        this.props.setTeams(teamListArr);
+
+      })
+
+*/

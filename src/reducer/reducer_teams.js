@@ -5,7 +5,8 @@ export default (state=[],action)=>
     {
         case SET_TEAMS:
         const{userteams}=action;
-        return {...userteams};
+        return userteams;
+
         default:
         return state;
     }
