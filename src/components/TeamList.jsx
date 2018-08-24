@@ -11,6 +11,7 @@ class TeamList extends Component
         let ab=email.toString().replace(/[^a-zA-Z@0-9 ]/g,"-dot-");
         return ab;
     }
+    
     componentDidMount()
     {
         userref.on('value',t=>{
