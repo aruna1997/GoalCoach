@@ -11,3 +11,4 @@ export const firebaseApp=firebase.initializeApp(config);
 export const goalref=firebase.database().ref('goals'); 
 export const completedgoalref=firebase.database().ref('completedgoal');
 export const teamref=firebase.database().ref('teams');   
+export const userref=firebase.database().ref('users');

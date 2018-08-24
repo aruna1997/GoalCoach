@@ -2,6 +2,7 @@ import React,{ Component} from 'react';
 import { firebaseApp } from '../firebase';
 import AddGoal from './AddGoal';
 import GoalList from './GoalList';
+import TeamList from './TeamList';
 import CompletedGoals  from './CompletedGoals';
 import {connect} from 'react-redux';
 import {teamref} from '../firebase';
@@ -62,6 +63,7 @@ class App extends Component
               Logout
               </button>
               <Link to={'/CreateTeam'}>Create Team</Link>
+              <TeamList />
             </div>
             )
     }
