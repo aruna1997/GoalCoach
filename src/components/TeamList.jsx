@@ -1,8 +1,8 @@
 import React,{ Component } from 'react';
 import {connect} from 'react-redux';
 import {userref} from '../firebase';
-import {setTeams} from '../actions';
-import {Thumbnail} from 'react-bootstrap';
+import {Link,Redirect,withRouter} from 'react-router-dom'
+import {setTeams,setActiveTeam} from '../actions';
 import '../App.css';
 class TeamList extends Component
 {
@@ -11,7 +11,6 @@ class TeamList extends Component
         let ab=email.toString().replace(/[^a-zA-Z@0-9 ]/g,"-dot-");
         return ab;
     }
-    
     componentDidMount()
     {
         userref.on('value',t=>{
@@ -30,10 +29,14 @@ class TeamList extends Component
                 console.log('all team',userteams);
                 this.props.setTeams(userteams);
             })
-        }
-        
-        )}
-
+        })
+    }
+   openteamPage(team)
+   {    
+   
+       this.props.setActiveTeam(team);
+       this.props.history.push('/TeamPage');
+   }
     render()
     {
         return(
@@ -43,10 +46,10 @@ class TeamList extends Component
             { this.props.user ? 
                 this.props.teams.map((team,k)=>(
                     <div key={k}>
-                    <div className="card" onClick={this}>
+                    <div className="card">
                     {team}
                     </div>
-                    <button className="btn btn-success">Open</button>
+                    <button className="btn btn-success" onClick={this.openteamPage.bind(this,team)}>Open</button>
                     </div>
                 ))        
                 : ''  
@@ -64,4 +67,4 @@ function mapStateToProps(state)
     
     return{user,teams};
 }
-export default connect(mapStateToProps,{setTeams})(TeamList);
+export default withRouter(connect(mapStateToProps,{setTeams,setActiveTeam})(TeamList));

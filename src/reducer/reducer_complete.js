@@ -1,4 +1,4 @@
-import { SET_COMPLETED } from '../constants';
+import { SET_COMPLETED,TEAM_COMPLETED } from '../constants';
 export default (state=[],action)=>{
 
     switch(action.type)
@@ -6,6 +6,9 @@ export default (state=[],action)=>{
         case SET_COMPLETED:
             const {completedgoals}=action;
             return completedgoals;
+        case TEAM_COMPLETED:
+           const{completedteamgoals}=action;
+           return completedteamgoals;
         
         
     }

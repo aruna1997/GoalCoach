@@ -14,6 +14,7 @@ import ForgotPassword from './components/ForgotPassword';
 
 import { createBrowserHistory } from "history";
 import CreateTeam from './components/CreateTeam';
+import TeamPage from './components/TeamPage';
 const history = createBrowserHistory();
 
  const store=createStore(reducer);
@@ -39,13 +40,12 @@ ReactDOM.render(
     <Provider store={store}>
     <Router history = {history}>
         <Switch>
-            <Route path='/test' render={props=>console.log('test,',props)
-            } />
                 <Route exact path="/" component={App} />
                 <Route exact path="/SignIn" component={SignIn} />
                 <Route exact path="/SignUp" component={SignUp} />
                 <Route exact path="/ForgotPassword" component={ForgotPassword} />
                 <Route exact path="/CreateTeam" component={CreateTeam} />
+                <Route exact path="/TeamPage" component={TeamPage} />
         </Switch>
     </Router>
     </Provider>

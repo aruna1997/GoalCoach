@@ -5,7 +5,6 @@ import GoalList from './GoalList';
 import TeamList from './TeamList';
 import CompletedGoals  from './CompletedGoals';
 import {connect} from 'react-redux';
-import {teamref} from '../firebase';
 import {Link} from 'react-router-dom';
 
 if (firebaseApp.auth().isSignInWithEmailLink(window.location.href)) {
